@@ -1,0 +1,82 @@
+package com.example.uas_nurul_misbahudin;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import java.util.ArrayList;
+
+public class Main3Activity_doa extends AppCompatActivity {
+
+
+    private ArrayList<String> foto = new ArrayList<>();
+    private ArrayList<String> namamasjid = new ArrayList<>();
+    private ArrayList<String> namakota = new ArrayList<>();
+    private ArrayList<String> info = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3_doa);
+
+        getDataFromInternet();
+    }
+
+    private void prosesRecyclerViewAdapter(){
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(foto, namamasjid,namakota, info, this);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+    }
+    private  void getDataFromInternet(){
+
+        namakota.add("Doa Sebelum Makan");
+        namamasjid.add("Doa Sebelum Makan");
+        foto.add("https://mir-s3-cdn-cf.behance.net/projects/404/15e2ba84690513.Y3JvcCw5MDYwLDcwODcsMjAxLDA.jpg");
+        info.add("\n" +
+                "اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ\n" +
+                "\n" +
+                "Alloohumma barik lanaa fiimaa razatanaa waqinaa 'adzaa bannar\n" +
+                "\n" +
+                "Artinya: \"Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka\"\n" +
+                "\n" +
+                "\n" +
+                "\n");
+
+        namakota.add("Doa Niat Puasa");
+        namamasjid.add("Doa Niat Puasa");
+        foto.add("https://mir-s3-cdn-cf.behance.net/projects/404/15e2ba84690513.Y3JvcCw5MDYwLDcwODcsMjAxLDA.jpg");
+        info.add("نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانِ هذِهِ السَّنَةِ لِلهِ تَعَالَى \n" +
+                "Nawaitu sauma ghadin an’adai fardi syahri ramadhani hadzihisanati lillahita’ala \n" +
+                "Artinya, \"Saya niat berpuasa esok hari untuk menunaikan fardhu di bulan Ramadhan tahun ini, karena Allah Ta'ala.\"\n" +
+                "\n" +
+                "\n");
+
+        namakota.add("Doa Buka Puasa");
+        namamasjid.add("Medan Raya");
+        foto.add("https://mir-s3-cdn-cf.behance.net/projects/404/15e2ba84690513.Y3JvcCw5MDYwLDcwODcsMjAxLDA.jpg");
+        info.add("اَللّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّحِمِيْنَ\n" +
+                "“Allahumma laka shumtu wa bika amantu wa'ala rizqika afthartu. Birrahmatika yaa arhamar roohimin.”\n" +
+                "Artinya,\n" +
+                "Ya Allah karenaMu aku berpuasa, denganMu aku beriman, kepadaMu aku berserah, " +
+                "dan sengan rezekiMu aku berbuka (puasa), dengan rahmatMu, wahai Allah Tuhan Maha Pengasih.\n");
+
+
+
+
+
+
+
+
+
+
+        prosesRecyclerViewAdapter();
+
+    }
+}
